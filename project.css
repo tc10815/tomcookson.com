@@ -1,0 +1,161 @@
+/*general layout*/
+@font-face {
+  font-family: VollkornMedium;
+  src: url(./fonts/Vollkorn-Medium.ttf);
+  }
+  @font-face {
+  font-family: VollkornBold;
+  src: url(./fonts/Vollkorn-Bold.ttf);
+  }
+  @font-face {
+  font-family: VollkornExtraBold;
+  src: url(./fonts/Vollkorn-ExtraBold.ttf);
+  }
+
+  body {
+    background-color:black;
+    font-family: VollkornBold;
+    color:#FFFFFF;
+    display:block;
+    margin: 0px;
+    padding: 0px;
+    background-image: url("photos/sunrise.jpg");
+    background-size:cover;
+    background-position:center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  
+  }
+  ul{
+    padding-top:0em;
+    margin-top:0.5em;
+    margin-left:0.8em;
+    padding-left: 0.8em;
+  }
+  body::-webkit-scrollbar {
+    display: none;
+  }
+  a {
+    font-weight: bold;
+    font-style:normal;
+    text-decoration: none;
+  }
+  a:link {
+    color: white;
+  }
+  a:visited {
+    color: white;
+  }
+  a:hover {
+    color:lightgrey;
+  }
+  a:active {
+    color: lightgrey;
+  }
+
+#namebox{
+  padding-top:5%;
+  text-align:center;
+  padding-bottom: 3%;
+}
+
+#linkbox{
+  text-align:center;
+  line-height:250%;
+  word-spacing:2em;
+}
+
+.projectbox{
+  display:block;
+  font-family: VollkornMedium;
+  line-height:130%;
+  margin-left:2em;
+  margin-right:2em;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+@keyframes UnderlineFadeIn {
+  0% {text-decoration: underline solid transparent;}
+  100% {text-decoration: underline solid white;}
+}
+@keyframes UnderlineFadeOut {
+  0% { text-decoration: underline solid white; }
+  100% { text-decoration: underline solid transparent; }
+}
+
+.darkbox{
+  border-radius: 10px;
+  width:80%;
+  backdrop-filter: blur(5px);
+  padding-top:0.3em;
+  padding-bottom:0.3em;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:0.6em;
+  margin-bottom:0.6em;
+
+  height: fit-content;
+  display: block;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.darkbox ul{
+  padding-bottom: 1em;
+}
+.aboutboxclass{
+  display:block;
+  padding-top:1%;
+  text-align:center;
+  text-decoration:underline;
+}
+
+.infobox{
+  display:block;
+  text-align:center;
+  font-family: VollkornMedium;
+  line-height:130%;
+  margin-left:2em;
+  margin-right:2em;
+}
+
+body img{
+  width:30em;
+}
+
+#timelinebox{
+  display: none;
+}
+#aboutbox{
+  display: none;
+}
+.titlecenter {
+  text-align:center;
+  text-decoration-line:underline;
+}
+
+@media only screen and (max-width: 500px) {
+  ul{
+    margin-left:0.4em;
+    padding-left: 0.4em;
+  }
+  .infobox{
+    margin-left:0.5em;
+    margin-right:0.5em;
+    font-size:large;
+  }
+  .darkbox{
+    width:96%;
+  }
+  .projectbox{
+    margin-left:1.3em;
+    margin-right:1.3em;
+  }
+}

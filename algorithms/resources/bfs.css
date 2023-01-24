@@ -1,0 +1,131 @@
+/*
+  Grid layout logic
+*/
+.wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    grid-template-rows: 1fr 1fr;
+}
+.gridmap{
+    grid-column: 1;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+.gridpseudocode{
+    grid-row: 1;
+    grid-column: 2;
+}
+#stepwindow{
+    display:block;
+    max-height:300px;
+    min-height:300px;
+    overflow:auto;
+    margin-top:0px;
+}
+.gridvariables{
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.qlheading{
+    font-size: x-small;
+    font-weight:bold;
+    font-family:'Courier New', Courier, monospace;
+    text-decoration:underline;
+}
+
+.gridInnerLists{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+    max-height:300px;
+    overflow:auto;
+    margin-top:0px;
+    height:max-content;
+}
+
+.innerReachedCol{
+    grid-column:2;
+    grid-row: 1;
+    display: grid;
+
+    
+}
+.innerFrontierCol{
+    grid-column:1;
+    grid-row: 1;
+
+}
+.gridvariables h3{
+    text-align: center;
+    padding: 0px;
+}
+.innerReachedCol h3, .innerFrontierCol h3{
+    margin: 0px;
+
+}
+.griditem{
+    
+}
+line{
+    stroke-width: 20px;
+    stroke:blue;
+}
+
+circle{
+    fill:rgb(223,107,145);
+    width:10px;
+    height: 10px;
+}
+
+text{
+    fill:#000000;
+    stroke-width: 0.4px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight:800;
+    font-size:14px;
+}
+
+svg{
+    min-width:100%;
+    min-height: 50%;
+    outline:2pt;
+    outline-style: outset;
+    outline-width:2px;
+    outline-color: grey;                    
+}
+
+#pseudocode{
+    font-family:'Courier New', Courier, monospace;
+    font-size:small;
+}
+
+#controlbox{
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#controlbox form{
+    margin-bottom: 0px;
+}
+#pseudocode p{
+    margin-bottom: -0.7em; /* between paragraphs */
+}
+
+.ckeyword{
+    font-weight:bold;
+}
+
+.cfunction{
+    text-transform:uppercase;
+}
+
+.cvariable{
+    font-style:italic;
+}
+
+.ctab::after{
+    content: '  ';
+    white-space: pre;
+}

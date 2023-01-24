@@ -1,0 +1,43 @@
+@font-face {
+    font-family: VollkornMedium;
+    src: url(./fonts/Vollkorn-Medium.ttf);
+}
+@font-face {
+    font-family: VollkornBold;
+    src: url(./fonts/Vollkorn-Bold.ttf);
+}
+@font-face {
+    font-family: VollkornExtraBold;
+    src: url(./fonts/Vollkorn-ExtraBold.ttf);
+}
+a {
+    color:black;
+}
+body{
+    font-family: VollkornBold;
+    color:black;
+    background-color:white;
+    font-size:large;
+    text-align:center;
+}
+img{
+    padding-top: 2em;
+    padding-bottom:0.5em;
+    padding-left:2em;
+    padding-right:2em;
+    max-width: 80%;
+}
+p {
+    font-family: VollkornBold;
+    color:black;
+}
+
+@media only screen and (max-width: 700px) {
+    img{
+        padding-top: 0.2em;
+        padding-bottom:0.5em;
+        padding-left:0em;
+        padding-right:0em;
+        max-width: 100%;
+    }
+}

@@ -1,0 +1,199 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="resources/favicon.ico">
+        <link rel="stylesheet" type="text/css" href="resources/bfs.css" />
+        <title>Breadth-First Search Visualizer</title>
+    </head>
+    <body>
+        <script src="resources/bigvariables.js"></script>
+        <script src="resources/corefunctions.js"></script>
+        <div class="wrapper">
+            <div id="romaniasvg" class="gridmap">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+                </svg>
+                <div id='controlbox'>
+                    <form name='controlboxform'>
+                        <p>Initial Node: <select id='initSelect'></select> Goal Node:<select id='goalSelect'></select><button id='runsearch' type="button">Run Search</button></p>
+                        <p><span id='solutionp'>Press 'Run Search' to Display Solution</span></p>
+                        <button id='backstep' type="button">&larr;</button><button id='nextstep' type="button">&rarr;</button>
+                    </form>
+                </div>
+                <p id="stepwindow"></p>
+            </div>
+            <div id='pseudocode' class="gridpseudocode">
+                <p><span class='ckeyword'>function</span> <span class='cfunction'>Breadth-First-Search</span><span class='cvariable'>(problem)</span>  </p>
+                <p><span class='ctab'></span><span class='cvariable'>node</span> &larr; <span class='cfunction'>
+                    Node</span>(<span class="cvariable">problem.</span><span class="cfunction">initial</span>)</p>
+                <p><span class='ctab'></span><span class='ckeyword'>if</span>
+                    <span class='cvariable'>problem</span>.<span class='cfunction'>Is-Goal</span>(<span class="cvariable">node</span>.<span class='cfunction'>State</span>)
+                    <span class="ckeyword">then return</span><span class="cvariable"> node</span></p>
+                <p><span class='ctab'></span><span class="cvariable">frontier</span> &larr; a FIFO queue, with <span class="cvariable">node</span> as an element</p>
+                <p><span class='ctab'></span><span class="cvariable">reached</span> &larr; {<span class="cvariable">problem</span>.<span class='cfunction'>initial</span>}</p>
+                <p><span class='ctab'></span><span class="ckeyword">while not</span> <span class='cfunction'>Is-Empty</span>(<span class="cvariable">frontier</span>) <span class="ckeyword">do</span></p>
+                <p><span class='ctab'></span><span class='ctab'></span><span class="cvariable">node</span> &larr; <span class='cfunction'>Pop</span>(<span class="cvariable">frontier</span>)</p>
+                <p><span class='ctab'></span><span class='ctab'></span><span class="ckeyword">for each</span> <span class="cvariable">child</span> <span class='ckeyword'>in</span> <span class='cfunction'>Expand</span>(<span class="cvariable">problem, node</span>) <span class="ckeyword">do</span></p>
+                <p><span class='ctab'></span><span class='ctab'></span><span class='ctab'></span><span class="cvariable">s &larr; child</span>.<span class="cfunction">State</span></p>
+                <p><span class='ctab'></span><span class='ctab'></span><span class='ctab'></span><span class="ckeyword">if</span> <span class="cvariable">problem</span>.<span class='cfunction'>Is-Goal</span>(<span class="cvariable">s</span>) <span class="ckeyword">then return</span> <span class="cvariable">child</span></p>
+                <p><span class='ctab'></span><span class='ctab'></span><span class='ctab'></span><span class="ckeyword">if</span> <span class="cvariable">s</span> is not in <span class="cvariable">reached</span> <span class="ckeyword">then</span></p>
+                <p><span class='ctab'></span><span class='ctab'></span><span class='ctab'></span><span class='ctab'></span>add <span class="cvariable">s</span> to <span class="cvariable">reached</span></p>
+                <p><span class='ctab'></span><span class='ctab'></span><span class='ctab'></span><span class='ctab'></span>add <span class="cvariable">child</span> to <span class="cvariable">frontier</span></p>
+                <p><span class='ctab'></span><span class="ckeyword">return</span> <span class="cvariable">failure</span></p>
+                <p style="font-size:7px"><br><br>Russell, S. J., &amp; Norvig, P. (2022). Figure 3.9.<br> In <span style="font-style:italic">Artificial Intelligence: A modern approach</span>. Pearson Education Limited. </p>
+            </div>
+
+            <div class="gridvariables">
+                <div id='nodeValue'><h3>Current Node: none</h3></div>
+                <div class='gridInnerLists'>
+                    <div class='innerReachedCol'>
+                        <h3><span class='qlheading'>list</span><br><span class="cvariable">reached</span></h3>
+                        <div id="reachedlist"></div>
+                    </div>
+                    <div class='innerFrontierCol'>
+                        <h3><span class='qlheading'>queue</span><br><span class="cvariable">frontier</span></h3>
+                        <div id="frontierlist"></div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                var solution = [];
+                var steps = []
+                var currentStep = 0;
+                var initSelect = document.getElementById('initSelect');
+                var goalSelect = document.getElementById('goalSelect');
+                var btnRunSearch = document.getElementById('runsearch');
+                var btnNext = document.getElementById('nextstep');
+                var btnBack = document.getElementById('backstep');
+                var PSolution = document.getElementById('solutionp');
+                var PSteps = document.getElementById('stepwindow');
+                var PReached = document.getElementById('reachedlist');
+                var currentReached = [];
+                var currentFrontier = [];
+                var currentNode = [''];
+                var PFrontier = document.getElementById('frontierlist');
+                var DNode = document.getElementById('nodeValue');
+
+                btnRunSearch.onclick = function(){
+                    solution = [];
+                    steps = []
+                    currentStep = 0;
+                    currentReached = [];
+                    currentFrontier = [];
+                    currentNode = [];
+                    PSolution.innerHTML = '';
+                    PFrontier.innerHTML = '';
+                    PReached.innerHTML = '';
+                    let startNodeStr = initSelect.value.replace(' ','_');
+                    let goalNodeStr = goalSelect.value.replace(' ','_');
+                    starterNode = new TravelNode(startNodeStr, [[startNodeStr,0]], romaniaMap);
+                    sp = new SearchProblem(starterNode,goalNodeStr);
+                    bfs = new BreadthFirstSearch();
+                    let result = bfs.findSolutionVerbose(sp);
+                    let path = result[0];
+                    solution = result[0];
+                    steps = result[1];
+                    PSolution.innerHTML += '';
+                    for (let leg in path.history){
+                        PSolution.innerHTML += path.history[leg][0].replace('_',' ') + ' &rarr; ';
+                    }
+                    PSolution.innerHTML = 'Path found: ' + PSolution.innerHTML.slice(0,PSolution.innerHTML.length-2);
+                    if (steps.length > 0){
+                        PSteps.innerHTML = '';
+                        updateToStep(steps,currentStep,PSteps, currentNode, currentFrontier, currentReached);
+                        updateNodeLists(currentFrontier, currentReached, currentNode, PReached, PFrontier, DNode);
+                    }
+                }
+
+                btnNext.onclick = function(){
+                    let temp = document.getElementById('Arad_Sibiu_line');
+                    temp.setAttribute('style','stroke:#555555; stroke-width:2;');
+
+                    if(currentStep < steps.length -1){
+                        currentStep++;
+                        if (steps.length > 0){
+                            updateToStep(steps,currentStep,PSteps, currentNode, currentFrontier, currentReached);
+                            updateNodeLists(currentFrontier, currentReached, currentNode, PReached, PFrontier, DNode);
+                        }
+                    }
+                }
+                
+                btnBack.onclick = function(){
+                    var temp = document.getElementById('txt_Arad');
+                    temp.textContent = 'whaat';
+
+                    if(currentStep > 0){
+                        currentStep--;
+                        pstepstr = '';
+                        currentReached = [];
+                        currentFrontier = [];
+                        for(let innerStep = 0; innerStep <= currentStep; innerStep++){
+                            if (steps.length > 0){
+                                pstepstr = updateToStep(steps,innerStep,PSteps, currentNode, currentFrontier, currentReached,true) + pstepstr;
+                            }
+                        }
+                        updateNodeLists(currentFrontier, currentReached, currentNode, PReached, PFrontier, DNode);
+                        PSteps.innerHTML = pstepstr;
+                    }
+                }
+                console.log(city_locations);
+                for (let city in city_locations){
+                    let temp_sel = document.createElement('option');
+                    let temp_sel2 = document.createElement('option');
+                    temp_sel.innerText = city.replace('_',' ');
+                    temp_sel2.innerText = city.replace('_',' ');
+
+                    initSelect.appendChild(temp_sel);
+                    goalSelect.appendChild(temp_sel2);
+                }
+                initSelect.value = 'Arad';
+                goalSelect.value = 'Bucharest';
+
+
+                var romaniaSvg = document.getElementById('romaniasvg').getElementsByTagName('svg');
+            let allLinesNames = []
+            for(num in line_list){
+                let list_sorter = [line_list[num][0],line_list[num][1]]
+                list_sorter.sort();
+                let thisLinesName = list_sorter.join('_') + '_line';
+
+                if(allLinesNames.indexOf(thisLinesName) == -1){
+                    x1 = line_list[num][3][0] * 100;
+                    y1 = line_list[num][3][1] * 100;
+                    x2 = line_list[num][4][0] * 100;
+                    y2 = line_list[num][4][1] * 100;
+                    let temp_line = document.createElementNS("http://www.w3.org/2000/svg", 'line');
+                    temp_line.setAttribute('x1', x1 + '%');
+                    temp_line.setAttribute('y1', y1 + '%');
+                    temp_line.setAttribute('x2', x2 + '%');
+                    temp_line.setAttribute('y2', y2 + '%');
+                    temp_line.setAttribute('id',thisLinesName);
+                    temp_line.setAttribute('style','stroke-width:2');
+                    romaniaSvg[0].appendChild(temp_line);
+                    allLinesNames.push(thisLinesName);
+                } else {
+                    console.log(thisLinesName + '_dupped');
+                }
+            }
+            for (temp_name in city_locations){
+                let temp_element = document.createElementNS("http://www.w3.org/2000/svg", 'text');
+                let temp_x = city_locations[temp_name][0]* 100;
+                let temp_y = city_locations[temp_name][1]* 100;
+                temp_element.setAttribute("x", temp_x + 1 + '%');
+                temp_element.setAttribute("y", temp_y - 1 + '%');
+                temp_element.setAttribute('color','#D63964;');
+                temp_element.setAttribute("id", "txt_" + temp_name);
+                temp_element.textContent = temp_name.replace('_',' ');
+
+
+                let temp_circle = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
+                temp_circle.setAttribute("cx", temp_x +  '%');
+                temp_circle.setAttribute("cy", temp_y + '%');
+                temp_circle.setAttribute("r", '3px');
+                romaniaSvg[0].appendChild(temp_circle);
+                romaniaSvg[0].appendChild(temp_element);
+            }
+            </script> 
+        </div>
+    </body>
+</html>
