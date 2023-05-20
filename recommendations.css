@@ -65,6 +65,11 @@ body {
     margin-right:auto;
   }
 
+  .locationsub {
+    font-size:small;
+    font-style: italic;
+  }
+
   @media only screen and (max-width: 500px) {
     body {
       margin-left: 3%;
