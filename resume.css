@@ -10,6 +10,12 @@
   font-family: VollkornExtraBold;
   src: url(./fonts/Vollkorn-ExtraBold.ttf);
   }
+  h1, h2{
+    text-align: center;
+  }
+  p {
+    text-align: center;
+  }
 body {
     background-color:white;
     font-family: VollkornMedium;
@@ -17,9 +23,11 @@ body {
     display:block;
     font-size:large;
     margin-top: 1%;
-    margin-left: 15%;
-    margin-right: 15%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1000px;
     padding: 0px;
+    padding-bottom:4em;
   }
   a {
     color: black;
@@ -46,9 +54,10 @@ body {
 
   .time{
     font-style:italic;
+    text-align: left;
   }
   li{
-    padding-bottom:0.7em;
+    padding-bottom:0.3em;
   }
 
   @media only screen and (max-width: 500px) {
@@ -62,7 +71,5 @@ body {
       margin-left:0.7em;
       padding-left: 0.7em;
     }
-    h1, h2{
-      text-align: center;
-    }
+
   }
