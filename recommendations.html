@@ -52,6 +52,7 @@
                 <h4><a href="#software">Software</a></h4>
                 <ul>
                     <li><a href="#photomatix">Photomatix</a></li>
+                    <li><a href="#piper">Piper Reader</a></li>
                     <li><a href="#retroarch">RetroArch</a></li>
                 </ul>
                 </div>
@@ -282,6 +283,31 @@
         a lot of HDR. He helped popularize the style and apparently had some roll in developing the Aurora HDR software. I think I learned how to use Photomatix
         with one of his tutorials (long before Aurora HDR existed)</li>
     </ul>
+    <h4 id="piper">Piper Reader</h4>
+    <ul>
+        <li><a href="https://github.com/rhasspy/piper" target="_blank">Piper</a> reads text on your computer with some pretty good sounding voices.</li>
+        <li>Listen to samples of voices <a href="https://rhasspy.github.io/piper-samples/" target="_blank">here</a>.</li>
+        <li>Piper sounds pretty good, requires little system resources and doesn't require the Internet. Most text readers struggle in one of those three areas, making Piper the all around best text reader for my purposes.</li>
+        <li>I attach Piper to a keyboard shortcut that reads my clipboard, this helps me focus reading long articles and proof reading things I'm writing. My favorite voice is <a href="https://huggingface.co/rhasspy/piper-voices/tree/main/en/en_GB/vctk/medium" target="_blank">en_GB-vctk-medium.onnx</a></li>
+        <li>Here are the Bash scripts I attach to shortcuts in Linux to get Piper to read and stop reading my clipboard:</li>
+        <p><strong>read_clipboard.sh</strong></p>
+        <code>
+            #!/bin/bash<br /><br />
+
+            # Read text from the clipboard, preserving quotes<br />
+            CLIPBOARD_TEXT=$(xclip -selection clipboard -o | sed 's/"/\\"/g')<br /><br />
+
+            # Execute your TTS command with the clipboard content<br />
+            echo "$CLIPBOARD_TEXT" | /home/tom/tts/venv/bin/piper --model /home/tom/tts/models/en_GB-vctk-medium.onnx --output-raw | aplay -r 22050 -f S16_LE -t raw -</p>
+        </code><br />
+        <p><strong>stop_reading.sh</strong></p>
+        <code>
+            #!/bin/bash<br />
+            # Kill aplay<br />
+            killall aplay
+        </code><br /><br />
+        <li><em>Note: I installed Piper with pip in a venv in a folder named tts. I put the voice model I like in the models folder under the tts folder with the accompanying json file. You'll need to update those values for read_clipboard.sh to work in your environment. </em></li>
+    </ul>
     <h4 id="retroarch">RetroArch</h4>
     <ul>
         <li>This software emulates the experience of playing old games on a computer. As as a nostalgic aging guy, I often want to play games that were popular with when I was a kid. Not long ago 
@@ -356,6 +382,6 @@
         </li>
     </ul>
     <br>
-    <div class="centerme">Last updated 6.6.2023, added Stardew game and Yorktown trail</div>
+    <div class="centerme">Last updated 3.22.2024, added Piper text reader in software.</div>
     </body>
 </html>
