@@ -1,0 +1,132 @@
+@font-face {
+  font-family: VollkornMedium;
+  src: url(./fonts/Vollkorn-Medium.ttf);
+  }
+  @font-face {
+  font-family: VollkornBold;
+  src: url(./fonts/Vollkorn-Bold.ttf);
+  }
+  @font-face {
+  font-family: VollkornExtraBold;
+  src: url(./fonts/Vollkorn-ExtraBold.ttf);
+  }
+body {
+    background-color:white;
+    font-family: VollkornMedium;
+    color:black;
+    display:block;
+    font-size:large;
+    margin-top: 1%;
+    margin-left: 15%;
+    margin-right: 15%;
+    padding: 0px;
+  }
+  a {
+    color: black;
+  }
+  p {
+    padding:0em;
+    margin:0em;
+  }
+  h1,h2,h3{
+    text-align:center;
+  }
+  img {
+    padding-bottom:1em;
+    max-width:70vw;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  h3{
+    padding:0em;
+    margin:0em;
+  }
+  h4 {
+    padding-left:0em;
+    padding-right:0em;
+    padding-bottom:0em;
+    padding-top:0.5em;
+    margin:0em;
+  }
+  ul{
+    padding-top:0em;
+    margin-top:0.5em;
+  }
+
+  .time{
+    font-style:italic;
+  }
+  li{
+    padding-bottom:0.7em;
+  }
+  .centerme {
+    max-width:fit-content;;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .locationsub {
+    font-size:small;
+    font-style: italic;
+  }
+
+
+  /* for layout out page index */
+  #index ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+  }
+
+  #index li {
+      margin-bottom: 0.5em; /* Adjust as needed */
+  }
+
+  .flex-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+  }
+
+  .flex-item {
+      flex: 1 0 20%; /* Adjust as needed, this means each box will take at least 20% of the width before it wraps to the next line */
+      margin: 1em;
+  }
+
+  .ingred li{
+      padding:0em;
+      margin:0em;
+   }
+  .recipename {
+    max-width:fit-content;
+    margin-left:auto;
+    margin-right:auto;
+    font-weight:bolder;
+    font-size:20pt;
+  }
+  .recipesubheader {
+    font-weight:bold;
+    font-size:15pt;
+
+  }
+
+
+  @media only screen and (max-width: 500px) {
+    body {
+      margin-left: 3%;
+      margin-right: 3%;
+      padding: 0px;
+      font-size:large;
+    }
+    ul{
+      margin-left:0.7em;
+      padding-left: 0.7em;
+    }
+    h1, h2{
+      text-align: center;
+    }
+    .flex-item {
+      flex: 1 0 100%; 
+    }
+
+  }
