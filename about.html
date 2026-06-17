@@ -9,19 +9,20 @@
     </head>
     <body>
         <script>
-            var timelineVisible = false;
-            function toggleTimeline() {
-                if(!timelineVisible){
-                    document.getElementById("timeline").style.display = 'block';
-                    document.getElementById("timeline").style.animation = 'fadeIn 1s';
-                    timelineVisible = true;
-                    document.getElementById("hidemelink").innerText = 'Hide timeline';
-                } else {
-                    document.getElementById("timeline").style.display = 'none';
-                    timelineVisible = false;
-                    document.getElementById("hidemelink").innerText = 'Click here to see a more detailed career timeline';
-                }
-			}
+        var timelineVisible = false;
+        function toggleTimeline() {
+          if(!timelineVisible){
+            document.getElementById("timeline").style.display = 'block';
+            document.getElementById("timeline").style.animation = 'fadeIn 1s';
+            timelineVisible = true;
+            document.getElementById("hidemelink").innerText = 'Hide timeline';
+          } else {
+            document.getElementById("timeline").style.display = 'none';
+            timelineVisible = false;
+            document.getElementById("hidemelink").innerText = 
+                    'Click here to see a more detailed career timeline';
+            }
+		}
         </script>
         <div class="darkbox" style="width:fit-content">
             <div class="aboutbox" style="text-decoration:none;"> &nbsp;&nbsp;
@@ -55,13 +56,28 @@
     and helping to provide enrichment for seniors at a day care and a 
     nursing home. In addition to direct service, I was also a manager 
     for a few years and in most of my roles there were some technical elements
-    (see <a href="#timeline" onclick="toggleTimeline()">career timeline</a> for details).</p>
+    (see <a href="#timeline" onclick="toggleTimeline()">career timeline</a> 
+    for details).</p>
     <p>In spring and summer of 2020, during the heart of the first wave of
-    the COVID-19 pandemic, I was the only remaining recreation staff working in the "memory care unit" of a nursing home. I helped the nursing home acquire and manage a number of iPads and Kindle Fires to allow individuals to talk with their families. In my unit, memory care, individuals needed me to facilitate the whole call, as many were cognitive impaired, and often nonverbal.</p>
-                <p>I tried to make sure families had as much communication as possible with their loved ones in memory care: Since there was a very high mortality rate at that point in the pandemic, among that demographic group, it was my chance to make a difference. I resigned in September of 2020, when pandemic seemed to be receding and enrolled in Pace's graduate program in Computer Science starting spring 2021.I completed the degree in 2023 with a 4.0 and started jobs in data management and teaching in January of 2025.</p>
-                <a href="#timeline" onclick="toggleTimeline()">
-                    <p id="hidemelink">Click here to see a more detailed career timeline</p>
-                </a>
+    the COVID-19 pandemic, I was the only remaining recreation staff working
+    in the "memory care unit" of a nursing home. I helped the nursing home 
+    acquire and manage a number of iPads and Kindle Fires to allow individuals
+    to talk with their families. In my unit, memory care, individuals needed 
+    me to facilitate the whole call, as many were cognitive impaired, and 
+    often nonverbal.</p>
+    <p>I tried to make sure families had as much communication as possible 
+    with their loved ones in memory care: Since there was a very high 
+    mortality rate at that point in the pandemic, among that demographic 
+    group, it was my chance to make a difference. I resigned in September 
+    of 2020, when pandemic seemed to be receding and enrolled in Pace's 
+    graduate program in Computer Science starting spring 2021. I 
+    completed the degree in 2023 with a 4.0 and started jobs in data 
+    management and teaching in January of 2025.</p>
+      <a href="#timeline" onclick="toggleTimeline()">
+        <p id="hidemelink">
+           Click here to see a more detailed career timeline
+        </p>
+      </a>
             </div>
         </div>
         <br>
