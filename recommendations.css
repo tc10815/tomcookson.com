@@ -96,7 +96,6 @@ body {
     font-style: italic;
   }
 
-
   /* for layout out page index */
   #index ul {
     padding: 0;
@@ -109,17 +108,31 @@ body {
   }
 
   .flex-container {
+      padding-left: 10%;
+      padding-right:10%;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
   }
-
+  
   .flex-item {
       flex: 1 0 40%; /* Adjust as needed, this means each box will take at least 20% of the width before it wraps to the next line */
-      margin-left: auto;
-      margin-right:auto;
       justify-content: center;
+      padding-bottom:1em;
   }
+
+  .flex-container .flex-item li{
+    margin: 5px 0px 0px 25%;
+    padding: 0px;
+ }
+  .flex-container .flex-item H4{
+    margin: 0px 0px 0px 25%;
+    padding: 0px;
+ }
+  .flex-container .flex-item ul{
+    margin: 0em 0em 0em 1em;
+    padding: 0px;
+ }
   .flex-center { /* Necessary pictures too small to take up full screen on phone */
   display: flex;
   justify-content: center; 
@@ -139,6 +152,9 @@ body {
     ul{
       margin-left:0.7em;
       padding-left: 0.7em;
+    }
+    h4{
+      text-align: center;
     }
   .locationsub {
     margin-left: 0.7em;
@@ -186,3 +202,19 @@ body {
   align-items: center;    
   width: 100vw;
   }
+  .flex-container .flex-item li{
+    margin: 5px 0px 0px 5%;
+    padding: 0px;
+ }
+  .flex-container .flex-item H4{
+    margin: 0px 0px 0px 5%;
+    padding: 0px;
+ }
+  .flex-container .flex-item ul{
+    margin: 0em 0em 0em 1em;
+    padding: 0px;
+ }
+ .indexh3 {
+    display: none;
+ }
+
