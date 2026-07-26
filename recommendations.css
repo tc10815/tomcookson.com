@@ -49,6 +49,10 @@ body {
     margin-left:auto;
     margin-right:auto;
   }
+  .nobottomspace {
+     padding-bottom: 0px; 
+     margin-bottom: 0px;
+  }
   h3{
     padding:0em;
     margin:0em;
