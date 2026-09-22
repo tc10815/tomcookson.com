@@ -166,7 +166,16 @@ body {
   p {
    padding-right: 0.5em;
    padding-left: 0.5em;
-  .ingred {
+    } 
+ .ingred {
    padding-right: 0.5em;
-   padding-left: 0.5em;
+   padding-left: 1.4em;
    }
+  .ingred li{
+   padding-top:0em;
+   padding-bottom:0em;
+   padding-right: 0.5em;
+   padding-left: 1em;
+   margin:0em;
+   }
+}
