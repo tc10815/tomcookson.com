@@ -175,7 +175,7 @@ body {
     }
     img{
       padding-bottom:0.5em;
-      max-width:100%;
+      max-width:100vw;
       margin-left:auto;
       margin-right:auto;
     }
@@ -222,4 +222,3 @@ body {
  .indexh3 {
     display: none;
  }
-
