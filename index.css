@@ -31,7 +31,7 @@
     display: none;
   }
   a {
-    font-weight: bold;
+    font-weight: normal;
     font-style:normal;
     text-decoration: none;
   }
@@ -56,35 +56,21 @@
 #projectstab{
   display:none;
 }
-#linkbox{
+#linkboxlarge{
+  display:block;
   text-align:center;
   line-height:250%;
   word-spacing:2em;
 }
-
+#linkboxsmall{
+  display:none;
+}
 .projectbox{
   display:block;
   font-family: VollkornMedium;
   line-height:130%;
   margin-left:2em;
   margin-right:2em;
-}
-
-@keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
-@keyframes fadeOut {
-  0% { opacity: 1; }
-  100% { opacity: 0; }
-}
-@keyframes UnderlineFadeIn {
-  0% {text-decoration: underline solid transparent;}
-  100% {text-decoration: underline solid white;}
-}
-@keyframes UnderlineFadeOut {
-  0% { text-decoration: underline solid white; }
-  100% { text-decoration: underline solid transparent; }
 }
 
 .darkbox{
@@ -131,8 +117,24 @@ body img{
 #aboutbox{
   display: none;
 }
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 650px) {
   body{
     font-size:large;
   }
+#linkboxlarge{
+  display:none;
+}
+#linkboxsmall{
+  padding-top: 10%;
+  display:block;
+  font-family: VollkornMedium;
+  text-align:center;
+  line-height:250%;
+  word-spacing:2em;
+
+}
+body{    
+    padding-top:10%;
+    background-position:80% 50%;
+}
 }
